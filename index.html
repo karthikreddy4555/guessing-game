@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Number Hunt</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#151f35;--muted:#aab5cc;--purple:#8878ff;--mint:#5ce5c5}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:22px 14px;display:grid;place-items:center;background:radial-gradient(circle at 15% 5%,#2c285e 0,transparent 35%),radial-gradient(circle at 90% 90%,#10453e 0,transparent 32%),var(--bg);color:#f6f7ff;font:16px/1.5 system-ui,Segoe UI,Arial,sans-serif}.app{width:min(100%,650px)}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.brand{font-weight:800;display:flex;align-items:center;gap:10px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--mint));color:#101528;font-size:23px}.pill{color:var(--muted);font-size:12px;border:1px solid #ffffff20;border-radius:30px;padding:6px 10px}.hero{text-align:center;margin-bottom:24px}.eyebrow{color:var(--mint);font-size:12px;letter-spacing:2px;font-weight:800;text-transform:uppercase}h1{font-size:clamp(38px,8vw,64px);line-height:1.05;letter-spacing:-2px;margin:10px 0}h1 span{color:var(--mint)}.hero p{color:var(--muted);max-width:470px;margin:0 auto}.panel{padding:clamp(18px,4vw,30px);border:1px solid #ffffff1c;border-radius:24px;background:linear-gradient(145deg,#1a2540f5,#11192bf5);box-shadow:0 25px 70px #0004}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}.stat{text-align:center;background:#ffffff08;border:1px solid #ffffff14;border-radius:14px;padding:12px 4px}.stat small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px}.stat strong{font-size:23px}.range{text-align:center;color:var(--muted);margin:0 0 15px}.range b{color:white}.entry{display:flex;gap:9px}.entry input{min-width:0;flex:1;background:#0b1223;border:1px solid #ffffff30;border-radius:12px;padding:13px;color:white;font:inherit;font-size:18px}.entry input:focus{outline:2px solid var(--purple);outline-offset:1px}button{cursor:pointer;font:inherit;font-weight:750;border-radius:12px;padding:12px 16px;border:1px solid #ffffff20;transition:filter .15s}button:hover{filter:brightness(1.15)}button:disabled{opacity:.55;cursor:not-allowed}.primary{background:linear-gradient(135deg,var(--purple),#6556d8);color:white;border:0}.secondary{background:#ffffff0c;color:white}.message{min-height:56px;display:grid;place-items:center;text-align:center;margin-top:16px;padding:12px;border:1px solid #ffffff16;border-radius:13px;background:#ffffff06;color:var(--muted)}.message.good{color:var(--mint);border-color:#5ce5c555}.message.hint{color:#ffdb83}.actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:14px}.history{margin-top:23px}.history h2{font-size:12px;color:var(--muted);letter-spacing:1px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{padding:5px 10px;border-radius:8px;background:#ffffff0b;border:1px solid #ffffff18;color:var(--muted);font-size:13px}.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.tip{padding:12px;border:1px solid #ffffff14;border-radius:13px;background:#ffffff05}.tip b{font-size:13px}.tip p{font-size:12px;color:var(--muted);margin:4px 0 0}footer{text-align:center;color:#7f8ba6;font-size:12px;margin-top:20px}@media(max-width:480px){.pill{display:none}.entry{flex-direction:column}.entry button{width:100%}.tips{grid-template-columns:1fr}.stat strong{font-size:19px}}
+</style>
+</head>
+<body>
+<main class="app">
+<header><div class="brand"><div class="logo">?</div> Number Hunt</div><div class="pill">A quick brain challenge</div></header>
+<section class="hero"><div class="eyebrow">Think · Guess · Win</div><h1>Crack the <span>code.</span></h1><p>I'm thinking of a number between 1 and 100. Can you find it in seven guesses?</p></section>
+<section class="panel">
+<div class="stats"><div class="stat"><small>GUESSES LEFT</small><strong id="left">7</strong></div><div class="stat"><small>YOUR BEST</small><strong id="best">—</strong></div><div class="stat"><small>ROUND</small><strong id="round">1</strong></div></div>
+<p class="range">Choose a whole number from <b>1 to 100</b></p>
+<form class="entry" id="guessForm"><input id="guessInput" type="number" min="1" max="100" step="1" placeholder="Enter your guess..." aria-label="Enter your guess" required><button class="primary" id="guessButton" type="submit">Guess it ↗</button></form>
+<div class="message" id="message" role="status">Enter a number and press Guess it.</div>
+<div class="actions"><button class="secondary" id="newButton" type="button">↻ New round</button><button class="secondary" id="hintButton" type="button">Need a hint?</button></div>
+<div class="history"><h2>YOUR GUESSES</h2><div class="chips" id="history"><span class="chip">No guesses yet</span></div></div>
+</section>
+<section class="tips"><div class="tip"><b>01 / Guess</b><p>Enter a number and submit it.</p></div><div class="tip"><b>02 / Follow clues</b><p>Use higher or lower hints to narrow it down.</p></div><div class="tip"><b>03 / Win</b><p>Find the secret number before guesses run out.</p></div></section>
+<footer>HTML · CSS · JavaScript · No pictures, videos, or external libraries</footer>
+</main>
+<script src="script.js" defer></script>
+</body>
+</html>
